@@ -19,6 +19,12 @@ func letterCombinations(digits string) []string {
 
 func backTrack(digits, temp string, p int) {
 	if len(digits) == len(temp) {
-		res
+		res = append(res, temp)
+		return
+	}
+
+	digitToChar := m[digits[p] - '2']
+	for i := 0; i < len(digitToChar); i++ {
+		backTrack(digits, temp+string(digitToChar[i]), p+1)
 	}
 }
