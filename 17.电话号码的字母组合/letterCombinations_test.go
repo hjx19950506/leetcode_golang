@@ -16,6 +16,10 @@ func TestLetterCombinations(t *testing.T) {
 			"23",
 			[]string{"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"},
 		},
+		{
+			"",
+			[]string{},
+		},
 	}
 
 	for i, v := range cases {
@@ -24,7 +28,7 @@ func TestLetterCombinations(t *testing.T) {
 			sort.Strings(got)
 			sort.Strings(v.want)
 			if !reflect.DeepEqual(got, v.want) {
-				t.Errorf("got %v want %v", got, v.want)
+				t.Errorf("got %#v want %#v", got, v.want)
 			}
 		})
 	}

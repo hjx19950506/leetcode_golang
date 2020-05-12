@@ -13,12 +13,16 @@ var m [][]byte = [][]byte{
 var res []string
 
 func letterCombinations(digits string) []string {
+	res = []string{}
+	if digits == "" {
+		return res
+	}
 	backTrack(digits, "", 0)
 	return res
 }
 
 func backTrack(digits, temp string, p int) {
-	if len(digits) == len(temp) {
+	if p == len(digits) {
 		res = append(res, temp)
 		return
 	}
