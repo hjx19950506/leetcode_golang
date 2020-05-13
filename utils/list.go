@@ -5,7 +5,7 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func MakeList(nums ...int) *ListNode {
+func makeList(nums ...int) *ListNode {
 	if len(nums) == 0 {
 		return nil
 	}
@@ -20,7 +20,7 @@ func MakeList(nums ...int) *ListNode {
 	return head
 }
 
-func AssertListEqual(l1, l2 *ListNode) bool {
+func assertListEqual(l1, l2 *ListNode) bool {
 	for l1 != nil && l2 != nil {
 		if l1.Val == l2.Val {
 			l1 = l1.Next
