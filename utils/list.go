@@ -29,5 +29,8 @@ func assertListEqual(l1, l2 *ListNode) bool {
 			return false
 		}
 	}
+	if l1 != nil || l2 != nil {
+		return false
+	}
 	return true
 }
