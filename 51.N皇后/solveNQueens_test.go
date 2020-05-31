@@ -6,7 +6,6 @@ import (
 	"testing"
 )
 
-//solveNQueens(n int) [][]string
 func TestSolveNQueens(t *testing.T) {
 	cases := []struct{
 		n		int
