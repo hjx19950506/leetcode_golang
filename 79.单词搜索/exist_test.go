@@ -12,6 +12,11 @@ func TestExist(t *testing.T) {
 		want		bool
 	} {
 		{
+			[][]byte{{'C','A','A'}, {'A','A','A'}, {'B','C','D'}},
+			"AAB",
+			true,
+		},
+		{
 			[][]byte{{'A','B','C','E'}, {'S','F','C','S'}, {'A','D','E','E'}},
 			"ABCCED",
 			true,
@@ -24,6 +29,16 @@ func TestExist(t *testing.T) {
 		{
 			[][]byte{{'A','B','C','E'}, {'S','F','C','S'}, {'A','D','E','E'}},
 			"ABCB",
+			false,
+		},
+		{
+			[][]byte{{'A','B','C','E'}, {'S','F','C','S'}, {'A','D','E','E'}},
+			"",
+			true,
+		},
+		{
+			[][]byte{{'a'}, {'a'}},
+			"aaa",
 			false,
 		},
 	}
