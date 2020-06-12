@@ -37,10 +37,16 @@ func assertListEqual(l1, l2 *ListNode) bool {
 	return true
 }
 
-func printList(head *ListNode) {
+func (head *ListNode) String() string {
+	res := ""
+	if head == nil {
+		return res
+	}
+	res += fmt.Sprintf("%v", head.Val)
+	head = head.Next
 	for head != nil {
-		fmt.Printf(" %v ==>", head.Val)
+		res += fmt.Sprintf(" ==> %v", head.Val)
 		head = head.Next
 	}
-	fmt.Printf("\n")
+	return res
 }
