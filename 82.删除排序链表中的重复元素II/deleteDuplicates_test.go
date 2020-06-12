@@ -35,10 +35,7 @@ func TestDeleteDuplicates(t *testing.T) {
 		t.Run(fmt.Sprint("test", k+1), func(t *testing.T) {
 			got := deleteDuplicates(v.head)
 			if !assertListEqual(got, v.want) {
-				t.Errorf("got:")
-				printList(got)
-				fmt.Printf("want:")
-				printList(v.want)
+				t.Errorf("got %v want %v", got, v.want)
 			}
 		})
 	}
@@ -73,10 +70,16 @@ func assertListEqual(l1, l2 *ListNode) bool {
 	}
 	return true
 }
-func printList(head *ListNode) {
+func (head *ListNode) String() string {
+	res := ""
+	if head == nil {
+		return res
+	}
+	res += fmt.Sprintf("%v", head.Val)
+	head = head.Next
 	for head != nil {
-		fmt.Printf(" %v ==>", head.Val)
+		res += fmt.Sprintf(" ==> %v", head.Val)
 		head = head.Next
 	}
-	fmt.Printf("\n")
+	return res
 }
