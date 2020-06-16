@@ -12,11 +12,65 @@ func TestPartition(t *testing.T) {
 		want	*ListNode
 	} {
 		{
+			makeList(2,0,4,1,3,1,4,0,3),
+			4,
+			makeList(2,0,1,3,1,0,3,4,4),
+		},
+		{
+			makeList(1,3,-1,5,2,1),
+			3,
+			makeList(1,-1,2,1,3,5),
+		},
+		{
+			makeList(1,2,3),
+			4,
+			makeList(1,2,3),
+		},
+		{
 			makeList(1,4,3,2,5,2),
 			3,
 			makeList(1,2,2,4,3,5),
 		},
+		{
+			makeList(4,3,2,5,2),
+			3,
+			makeList(2,2,4,3,5),
+		},
+		{
+			makeList(4,3,5),
+			3,
+			makeList(4,3,5),
+		},
+		{
+			makeList(1,1,1),
+			3,
+			makeList(1,1,1),
+		},
+		{
+			makeList(1),
+			3,
+			makeList(1),
+		},
+		{
+			makeList(5),
+			3,
+			makeList(5),
+		},
+		{
+			makeList(),
+			3,
+			makeList(),
+		},
 	}
+	for k, v := range cases {
+		t.Run(fmt.Sprint("test", k+1), func(t *testing.T) {
+			got := partition(v.head, v.x)
+			if !assertListEqual(got, v.want) {
+				t.Errorf("got %v want %v", got, v.want)
+			}
+		})
+	}
+
 }
 
 func makeList(nums ...int) *ListNode {
